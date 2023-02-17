@@ -6,9 +6,23 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        {{#if isHome}}
+                        <li class="nav-item"><a class="myActive nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+                        {{else}}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-white" href="/">Home</a></li>
+                        {{/if}}
+
+                        {{#if isProduct}}    
+                        <li class="nav-item"><a class="myActive nav-link px-lg-3 py-3 py-lg-4 text-white" href="/products">Products</a></li>
+                        {{else}} 
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-white" href="/products">Products</a></li>
+                        {{/if}}
+
+                        {{#if isAdd}}
+                        <li class="nav-item"><a class="myActive nav-link px-lg-3 py-3 py-lg-4 text-white" href="/add">Create</a></li>
+                        {{else}}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-white" href="/add">Create</a></li>
+                        {{/if}}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-white" href="/reg">Register</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-white" href="/login">Log In</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 text-white" href="/logout">Log Out</a></li>
