@@ -1,0 +1,24 @@
+::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(to right bottom, #002F34, #01717d);
+ }
+ ::-webkit-scrollbar{
+    width: 6px;
+    height: 0px;
+ }
+.myNavbar{
+    background-color: #002F34;
+    border-radius: 0 0 9px 9px;
+    position: sticky;
+    top: 0;
+    z-index: 99999999999;
+}
+.myLogo{
+    filter: invert(1);
+}
+.nav-link{
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+}
+.nav-item:hover{
+    background-color: #05474f;
+}
