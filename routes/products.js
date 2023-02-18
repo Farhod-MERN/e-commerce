@@ -2,7 +2,7 @@ const {Router} = require("express")
 
 const router = Router()
 
-router.get("/products",(req, res)=>{
+router.get("/",(req, res)=>{
     res.render("products", {
         title: "olx - Products",
         isProduct: true,

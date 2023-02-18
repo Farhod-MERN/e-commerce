@@ -1,0 +1,70 @@
+<form method="POST" action="/add" class="col-md-8 mx-auto row g-3 needs-validation my-5 myAddForm shadow p-3 mb-5 bg-body rounded">
+  <h4 class="text-center mb-2">Add Product</h4>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Product's Name</label>
+    <input type="text" name="name" class="form-control" id="validationCustom01" required = "true" placeholder="HP Laptop 15s">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom04" class="form-label">Quality</label>
+    <select name="quality" class="form-select" id="validationCustom04" required = "true">
+      <option selected disabled >Quality...</option>
+      <option>Bad</option>
+      <option>Good</option>
+      <option>Perfect</option>
+      <option>New</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Price</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">$</span>
+      <input type="number" min="0" name="price" placeholder="1200" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required = "true">
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <label for="validationCustom05" class="form-label">Address</label>
+    <input type="text" name="address" class="form-control" placeholder="Fergana, Uzbekistan" id="validationCustom05" required = "true">
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom04" class="form-label">Category</label>
+    <select name="category" class="form-select" id="validationCustom04" required = "true">
+      <option selected disabled >Category...</option>
+      <option>Laptop</option>
+      <option>Phone</option>
+      <option>Equipment</option>
+      <option>Other</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-8">
+    <label for="validationCustom03" class="form-label">Description</label>
+     <textarea class="form-control" name="description" placeholder="Describe your product ..." rows="6"  id="floatingTextarea2" required="true"></textarea>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom05" class="form-label">Tel</label>
+    <input type="tel" name="tel" class="form-control" placeholder="+998 ** *** ** **" id="validationCustom05" required = "true">
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Create Product</button>
+  </div>
+</form>

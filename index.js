@@ -18,9 +18,14 @@ app.set("views", "views")
 
 
 app.use(express.static("public"))
-app.use(homeRouter)
-app.use(addRouter)
-app.use(productsRouter)
+app.use(express.urlencoded({extended: true}))
+
+app.use("/", homeRouter)
+app.use("/add" ,addRouter)
+app.use("/products" ,productsRouter)
+app.use(express.json())
+
+
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, ()=>{

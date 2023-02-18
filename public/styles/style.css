@@ -6,7 +6,7 @@
     height: 0px;
  }
 .myNavbar{
-    background-color: #002F34;
+    background-color: #0D6EFD;
     border-radius: 0 0 9px 9px;
     position: sticky;
     top: 0;
@@ -21,9 +21,13 @@
     color: white;
 }
 .nav-item:hover{
-    background-color: #05474f;
+    background-color: #317dee;
 }
 .myActive{
-    color: blue !important;
+    color: rgb(26, 255, 0) !important;
     /* transform: scale(1.3); */
+}
+
+.myAddForm{
+    min-height: calc(100vh - 300px);
 }
