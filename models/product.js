@@ -75,5 +75,26 @@ class Product {
             );
         });
     }
+
+    static async getById(id){
+        const product = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
+        return product.find(c => c.id === id)
+    }
+    static async categoryLaptop(){
+        const products = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
+        return products.filter(c => c.category === "Laptop")
+    }
+    static async categoryPhone(){
+        const products = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
+        return products.filter(c => c.category === "Phone")
+    }
+    static async categoryEquipment(){
+        const products = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
+        return products.filter(c => c.category === "Equipment")
+    }
+    static async categoryOther(){
+        const products = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
+        return products.filter(c => c.category === "Other")
+    }
 }
 module.exports = Product

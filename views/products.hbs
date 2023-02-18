@@ -1,26 +1,70 @@
+<div class="row g-0 ">
+  <div class="col-sm-6 col-md-8">
+<div class="btn-group">
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Choose Category
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/products">All</a></li>
+        <li><a class="dropdown-item" href="/products/laptop">Laptop</a></li>
+        <li><a class="dropdown-item" href="/products/phone">Phone</a></li>
+        <li><a class="dropdown-item" href="/products/equipment">Equipment</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="/products/other">Other</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-6 col-md-4">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search any product by name"
+        aria-label="Recipient's username with two button addons"
+      />
+      <button class="btn btn-primary" type="button">❌</button>
+      <button class="btn btn-primary" type="button">🔍</button>
+    </div>
+  </div>
+</div>
+
 {{#if products.length}}
   <div class="productWrapper my-3">
     {{#each products}}
       <div class="card p-2">
-        <img src={{image}} style="height: 18rem;" class="card-img-top border border-2 p-3 rounded myCover" alt="image" />
+        <img
+          src={{image}}
+          style="height: 18rem;"
+          class="card-img-top border border-2 p-3 rounded myCover"
+          alt="image"
+        />
         <div class="card-body">
           <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{description}}</p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><b>$</b><i>{{price}}.00</i></li>
-          {{!-- <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li> --}}
+          {{! <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li> }}
         </ul>
         <div class="card-body">
-          <a href="/products/{{id}}" class="card-link text-decoration-none">Read more</a>
+          <a href="/products/{{id}}" class="card-link text-decoration-none">Read
+            more</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
     {{/each}}
   </div>
 {{else}}
-  <h4 class="text-center">No Products Yet 😔</h4>
+  <div class="w-80 mx-auto mt-5 text-center myAddForm">
+      <h4>Not Found 😔</h4>
+      <a href="/products" class="text-decoration-none">Go back ...</a>
+  </div>
 {{/if}}
 
 {{! <div class="col">

@@ -37,5 +37,5 @@
     gap: 1rem;
 }
 .myCover{
-    object-fit: cover;
+    object-fit: fill;
 }

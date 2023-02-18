@@ -11,11 +11,48 @@ router.get("/", async(req, res)=>{
         products: products,
     })
 })
-router.get("/:id", (req, res)=>{
-    const id = req.params
-    res.render("detail")
+router.get("/laptop", async(req, res)=>{
+    const products = await Product.categoryLaptop()
+    console.log(products);
+    res.render("products", {
+        title: "olx - Products",
+        isProduct: true,
+        products: products,
+    })
 })
-
-
+router.get("/phone", async(req, res)=>{
+    const products = await Product.categoryPhone()
+    console.log(products);
+    res.render("products", {
+        title: "olx - Products",
+        isProduct: true,
+        products: products,
+    })
+})
+router.get("/equipment", async(req, res)=>{
+    const products = await Product.categoryEquipment()
+    console.log(products);
+    res.render("products", {
+        title: "olx - Products",
+        isProduct: true,
+        products: products,
+    })
+})
+router.get("/other", async(req, res)=>{
+    const products = await Product.categoryOther()
+    console.log(products);
+    res.render("products", {
+        title: "olx - Products",
+        isProduct: true,
+        products: products,
+    })
+})
+router.get("/:id", async (req, res)=>{
+    const id = req.params.id
+    const product = await Product.getById(id)
+    res.render("detail", {
+        product: product
+    })
+})
 
 module.exports = router
