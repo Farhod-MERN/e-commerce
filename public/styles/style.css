@@ -25,5 +25,5 @@
 }
 .myActive{
     color: blue !important;
-    transform: scale(1.3);
+    /* transform: scale(1.3); */
 }
