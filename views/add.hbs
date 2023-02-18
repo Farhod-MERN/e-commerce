@@ -24,7 +24,7 @@
     <label for="validationCustomUsername" class="form-label">Price</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">$</span>
-      <input type="number" min="0" name="price" placeholder="1200" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required = "true">
+      <input type="number" min="0" name="price" required="true" placeholder="1200" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required = "true">
       <div class="invalid-feedback">
         Please choose a username.
       </div>
@@ -48,6 +48,13 @@
     </select>
     <div class="invalid-feedback">
       Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationCustom05" class="form-label">Product's image</label>
+    <input type="tel" name="image" class="form-control" placeholder="Please enter image's url" id="validationCustom05" required = "true">
+    <div class="invalid-feedback">
+      Please provide a valid zip.
     </div>
   </div>
   <div class="col-md-8">

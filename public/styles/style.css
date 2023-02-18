@@ -1,5 +1,5 @@
 ::-webkit-scrollbar-thumb{
-    background-image: linear-gradient(to right bottom, #002F34, #01717d);
+    background-image: linear-gradient(to right bottom, #360cdf, #426ded);
  }
  ::-webkit-scrollbar{
     width: 6px;
@@ -7,7 +7,7 @@
  }
 .myNavbar{
     background-color: #0D6EFD;
-    border-radius: 0 0 9px 9px;
+    border-radius: 0 0 3px 3px;
     position: sticky;
     top: 0;
     z-index: 99999999999;
@@ -30,4 +30,12 @@
 
 .myAddForm{
     min-height: calc(100vh - 300px);
+}
+.productWrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+}
+.myCover{
+    object-fit: cover;
 }

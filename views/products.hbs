@@ -1,0 +1,39 @@
+{{#if products.length}}
+  <div class="productWrapper my-3">
+    {{#each products}}
+      <div class="card p-2">
+        <img src={{image}} style="height: 18rem;" class="card-img-top border border-2 p-3 rounded myCover" alt="image" />
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <p class="card-text">{{description}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>$</b><i>{{price}}.00</i></li>
+          {{!-- <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li> --}}
+        </ul>
+        <div class="card-body">
+          <a href="/products/{{id}}" class="card-link text-decoration-none">Read more</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <h4 class="text-center">No Products Yet 😔</h4>
+{{/if}}
+
+{{! <div class="col">
+      <div class="card h-100">
+        <img src="..." class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below
+            as a natural lead-in to additional content. This content is a little
+            bit longer.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div> }}
