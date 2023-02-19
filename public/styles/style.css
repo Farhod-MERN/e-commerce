@@ -39,3 +39,11 @@
 .myCover{
     object-fit: fill;
 }
+.price{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.myprevious{
+    color: blue !important;
+    transform: scale(2);
+}

@@ -27,8 +27,8 @@
         placeholder="Search any product by name"
         aria-label="Recipient's username with two button addons"
       />
-      <button class="btn btn-primary" type="button">❌</button>
-      <button class="btn btn-primary" type="button">🔍</button>
+      <button class="btn btn-outline-primary" type="button">❌</button>
+      <button class="btn btn-outline-primary" type="button">🔍</button>
     </div>
   </div>
 </div>
@@ -48,14 +48,14 @@
           <p class="card-text">{{description}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><b>$</b><i>{{price}}.00</i></li>
+          <li class="list-group-item"><i class="price">{{price}}</i></li>
           {{! <li class="list-group-item">A second item</li>
           <li class="list-group-item">A third item</li> }}
         </ul>
         <div class="card-body">
           <a href="/products/{{id}}" class="card-link text-decoration-none">Read
             more</a>
-          <a href="#" class="card-link">Another link</a>
+          <a href="/products/{{id}}/edit" class="card-link">Edit</a>
         </div>
       </div>
     {{/each}}

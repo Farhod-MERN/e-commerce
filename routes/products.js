@@ -54,5 +54,9 @@ router.get("/:id", async (req, res)=>{
         product: product
     })
 })
+router.get("/:id/edit", async (req, res)=>{
+    const id = req.params.id
+    
+})
 
 module.exports = router
