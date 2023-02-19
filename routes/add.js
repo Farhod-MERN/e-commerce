@@ -16,7 +16,7 @@ router.post("/",async (req, res)=>{
     
     await product.save();
    
-    console.log(req.body);
+    // console.log(req.body);
     res.redirect("/add")
 })
 

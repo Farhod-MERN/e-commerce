@@ -76,6 +76,33 @@ class Product {
         });
     }
 
+    // product = req.body -> req.body /products/edit ga post qilgandagi
+
+    static async update(product){
+        const products = await Product.getAll()
+        console.log(products);
+        const inx = products.findIndex(c => c.id === product.id)
+        
+        console.log(inx);
+
+        products[inx] = product
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, "..", "data", "product.json"),
+                JSON.stringify(products),
+                (err) => {
+                    if (err) {
+                        reject(err)
+                    }
+                    else {
+                        resolve()
+                    }
+                }
+            );
+        });
+    }
+
     static async getById(id){
         const product = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
         return product.find(c => c.id === id)
@@ -96,5 +123,6 @@ class Product {
         const products = await Product.getAll() // product = array => [{id: 1}, {id: 2}]
         return products.filter(c => c.category === "Other")
     }
+
 }
 module.exports = Product

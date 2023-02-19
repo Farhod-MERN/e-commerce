@@ -13,7 +13,7 @@ router.get("/", async(req, res)=>{
 })
 router.get("/laptop", async(req, res)=>{
     const products = await Product.categoryLaptop()
-    console.log(products);
+    // console.log(products);
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
@@ -22,7 +22,7 @@ router.get("/laptop", async(req, res)=>{
 })
 router.get("/phone", async(req, res)=>{
     const products = await Product.categoryPhone()
-    console.log(products);
+    // console.log(products);
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
@@ -31,7 +31,7 @@ router.get("/phone", async(req, res)=>{
 })
 router.get("/equipment", async(req, res)=>{
     const products = await Product.categoryEquipment()
-    console.log(products);
+    // console.log(products);
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
@@ -40,7 +40,7 @@ router.get("/equipment", async(req, res)=>{
 })
 router.get("/other", async(req, res)=>{
     const products = await Product.categoryOther()
-    console.log(products);
+    // console.log(products);
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
@@ -55,8 +55,22 @@ router.get("/:id", async (req, res)=>{
     })
 })
 router.get("/:id/edit", async (req, res)=>{
+    if(!req.query.allow){
+        return res.redirect("/")
+    }
+
     const id = req.params.id
-    
+    const product = await Product.getById(id)
+
+    res.render("edit-product",{
+        title: `Edit ${product.name}`,
+        product: product
+    })
+})
+
+router.post("/edit", async (req, res)=>{
+    await Product.update(req.body)
+    res.redirect("/products")
 })
 
 module.exports = router

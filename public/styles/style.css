@@ -47,3 +47,9 @@
     color: blue !important;
     transform: scale(2);
 }
+
+@media (max-width: 766px) {
+        .deatilImage{
+            width: 100%;
+        }
+}
