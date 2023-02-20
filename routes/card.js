@@ -5,12 +5,12 @@ const Card = require("../models/card")
 
 
 router.get("/", async (req, res)=>{
-    const card = ""
-    // const card = Card.fetch()
+    const card = await Card.fetch()
     
     res.render("card", {
         title: "olx | Card",
-        card: card,
+        products: card.products,
+        price: card.price
     })
 })
 
@@ -19,7 +19,7 @@ router.post("/add",async (req, res)=>{
     
     await Card.add(product)
 
-    res.redirect("/card")
+    res.redirect(`/products/${req.body.id}`)
 })
 
 module.exports = router

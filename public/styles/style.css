@@ -54,9 +54,9 @@
     cursor: pointer;
     z-index: 9999;
 }
-.myCard svg{
-    width: 40px;
-    height: 40px;
+.myCard img{
+    width: 55px;
+    height: 55px;
     color:azure;
 }
 .myCard .icon{
@@ -67,7 +67,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: icon 2s ease-in-out infinite;
+    animation: icon 2s ease-in-out infinite alternate;
 }
 .myMarketing{
     box-sizing: border-box;
@@ -92,9 +92,9 @@
             width: 50px;
             height: 50px;
         }
-        .myCard svg{
-            width: 30px;
-            height: 30px;
+        .myCard img{
+            width: 45px;
+            height: 45px;
             color:azure;
         }
         .myLogin{
@@ -103,12 +103,7 @@
 }
 
 @keyframes icon {
-    50%{
-        color:rgb(26, 255, 0);
-        border: 1px solid blue !important;
-    }
-    100%{
-        color: blue;
-        border: 1px solid blue;
+    to{
+        transform: scale(1.2);
     }
 }
