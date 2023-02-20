@@ -1,5 +1,5 @@
 ::-webkit-scrollbar-thumb{
-    background-image: linear-gradient(to right bottom, #360cdf, #426ded);
+    background-image: linear-gradient(to right bottom, #259aee, #819ef4);
  }
  ::-webkit-scrollbar{
     width: 6px;
@@ -105,10 +105,10 @@
 @keyframes icon {
     50%{
         color:rgb(26, 255, 0);
-        border: 4px solid blue !important;
+        border: 1px solid blue !important;
     }
     100%{
         color: blue;
-        border: 4px solid blue;
+        border: 1px solid blue;
     }
 }
