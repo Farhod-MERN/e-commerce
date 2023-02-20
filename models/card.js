@@ -22,6 +22,7 @@ class Card {         // product = objectga
             product.count = 1
             card.products.push(product)
         }
+
         card.price += +product.price
 
         return new Promise((resolve, reject)=>{
@@ -45,6 +46,34 @@ class Card {         // product = objectga
                 }
             })
         })
+    }
+
+    static async remove(id){
+        const card = await Card.fetch()
+
+        const index = card.products.findIndex(c => c.id === id)
+
+        const product = card.products[index]
+        // count ===1
+        if(product.count === 1){
+            card.products = card.products.filter(item =>{
+                return item.id !== id
+            })
+        }else{
+            card.products[index].count--
+        }
+        card.price -= product.price
+        
+        return new Promise((resolve, reject)=>{
+            fs.writeFile(pathToDb, JSON.stringify(card), (err, content)=>{
+                if(err){
+                    reject(err)
+                }else{
+                    resolve(card)
+                }
+            })
+        })
+
     }
 }
 

@@ -79,6 +79,9 @@
 .myRegister{
     border: none;
 }
+.myBasket{
+    min-height: calc(100vh - 210px);
+}
 
 @media (max-width: 766px) {
         .deatilImage{
@@ -104,6 +107,6 @@
 
 @keyframes icon {
     to{
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
