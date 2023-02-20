@@ -55,7 +55,7 @@ class Card {         // product = objectga
 
         const product = card.products[index]
         // count ===1
-        if(product.count === 1){
+        if(product.count && product.count === 1){
             card.products = card.products.filter(item =>{
                 return item.id !== id
             })
