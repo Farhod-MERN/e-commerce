@@ -80,10 +80,10 @@ class Product {
 
     static async update(product){
         const products = await Product.getAll()
-        console.log(products);
+        // console.log(products);
         const inx = products.findIndex(c => c.id === product.id)
         
-        console.log(inx);
+        // console.log(inx);
 
         products[inx] = product
 

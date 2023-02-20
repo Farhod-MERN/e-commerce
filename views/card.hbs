@@ -1,21 +1,22 @@
-  <div class="myBasket">
+<div id="card" class="myBasket mx-md-5 mx-lg-g mx-1">
+
 {{#if products.length}}
     <div>
       <h4 class="text-center my-3">Your Basket</h4>
     </div>
     <div>
-      <table class="table align-middle mb-0 bg-white">
+      <table class="table align-middle mb-0">
         <thead class="bg-light">
           <tr>
             <th>Name</th>
             <th>Count</th>
-            <th>1 Price</th>
+            <th>$ Price</th>
             <th>Inc</th>
             <th>Dec</th>
           </tr>
         </thead>
-        {{#each products}}
         <tbody>
+        {{#each products}}
           <tr>
             <td>
               <div class="d-flex align-items-center">
@@ -46,10 +47,10 @@
               </button>
             </td>
           </tr>
-        </tbody>
         {{/each}}
+        </tbody>
       </table>
-      <p class="my-2"><b>Price All:</b> <span class="price">{{price}}</span></p>
+      <p class="my-2"><b>Price All:</b> <span id="price" class="price">{{price}}</span></p>
     </div>
 {{else}}
   <div class="text-center">

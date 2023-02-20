@@ -5,7 +5,7 @@ const fs = require("fs")
 const pathToDb = path.join(path.dirname(process.mainModule.filename), "data", "card.json")
 
 
-class Card {         // product = objectga 
+class Card { 
     static async add(product){
         const card = await Card.fetch() // card = object
         
@@ -55,17 +55,15 @@ class Card {         // product = objectga
 
         const product = card.products[index]
         // count ===1
-        if(product.count && product.count === 1){
-            card.products = card.products.filter(item =>{
-                return item.id !== id
-            })
+        if(product.count === 1){
+            card.products = card.products.filter(item =>(item.id !== id))
         }else{
             card.products[index].count--
         }
-        card.price -= product.price
+        card.price -= +product.price
         
-        return new Promise((resolve, reject)=>{
-            fs.writeFile(pathToDb, JSON.stringify(card), (err, content)=>{
+        return new Promise((resolve, reject) => {
+            fs.writeFile(pathToDb, JSON.stringify(card), (err)=>{
                 if(err){
                     reject(err)
                 }else{

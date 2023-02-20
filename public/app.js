@@ -1,33 +1,34 @@
-
 // Format Price
-const priceProduct = document.querySelectorAll(".price")
-priceProduct.forEach(item =>{
-    item.textContent = new Intl.NumberFormat("us-US", 
-    {
-       currency : "usd",
-       style: "currency"
-    }
-    ).format(item.textContent)
+const toCurrency = (price)=>{
+  return new Intl.NumberFormat("us-US", {
+    currency: "usd",
+    style: "currency",
+  }).format(price)
+}
+
+document.querySelectorAll(".price").forEach((c) => {
+  c.textContent = toCurrency(c.textContent)
 })
 
-//  Remove from Basket 
+//  Remove from Basket
 
-const $card = document.querySelector(".myBasket")
+const $card = document.querySelector("#card");
 
-if($card){
-    $card.addEventListener("click", (e) =>{
-        if(e.target.classList.contains("js-remove")){
-            const id = e.target.dataset.id
-            console.log(id);
+if ($card) {
+  $card.addEventListener("click", (e) => {
+    if (e.target.classList.contains("js-remove")) {
+      const id = e.target.dataset.id;
 
-            fetch("/card/remove/" + id, {
-                method: "delete"
-            }).then(res => res.json())
-            .then(card => {
-                 if(card.products.length){
-                    const dinamicHtml = card.products.map((c)=>{
-                        return `
-                        <tr>
+      fetch("/card/remove/" + id, {
+        method: "delete",
+      })
+        .then((res) => res.json())
+        .then((card) => {
+          if (card.products.length) {
+            const dinamicHtml = card.products
+              .map((c) => {
+                return `
+                    <tr>
                         <td>
                           <div class="d-flex align-items-center">
                             <img
@@ -57,12 +58,14 @@ if($card){
                           </button>
                         </td>
                       </tr>
-                        `
-                    }).join("")
-                    $card.querySelector("tbody").innerHTML = dinamicHtml
-                    $card.querySelector(".price").textContent = card.price
-                }else{
-                    $card.innerHTML = `
+                      
+                        `;
+              })
+              .join("");
+            $card.querySelector("tbody").innerHTML = dinamicHtml;
+            $card.querySelector("#price").textContent = toCurrency(card.price)
+          } else {
+            $card.innerHTML = `
                     <div class="myBasket text-center">
                         <div class="container-fluid  mt-100">
                             <div class="row">	 
@@ -81,9 +84,9 @@ if($card){
                                     </div>
                                     </div>
                     </div>
-                    `
-                 }
-            })
-        }        
-    })
+                    `;
+          }
+        });
+    }
+  });
 }
