@@ -47,9 +47,68 @@
     color: blue !important;
     transform: scale(2);
 }
+.myCard{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    z-index: 9999;
+}
+.myCard svg{
+    width: 40px;
+    height: 40px;
+    color:azure;
+}
+.myCard .icon{
+    /* background-color: #0DCFFF; */
+    border-radius:50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: icon 2s ease-in-out infinite;
+}
+.myMarketing{
+    box-sizing: border-box;
+}
+.myLogin{
+    min-height: calc(100vh - 250px);
+    margin-top: 90px;
+}
+.myRegister{
+    border: none;
+}
 
 @media (max-width: 766px) {
         .deatilImage{
             width: 100%;
         }
+        .myCard{
+            right: 7px;
+            bottom: 17px;
+        }
+        .myCard .icon{
+            width: 50px;
+            height: 50px;
+        }
+        .myCard svg{
+            width: 30px;
+            height: 30px;
+            color:azure;
+        }
+        .myLogin{
+            margin-top: 30px;
+        }
+}
+
+@keyframes icon {
+    50%{
+        color:rgb(26, 255, 0);
+        border: 4px solid blue !important;
+    }
+    100%{
+        color: blue;
+        border: 4px solid blue;
+    }
 }

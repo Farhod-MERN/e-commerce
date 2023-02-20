@@ -1,6 +1,6 @@
-<div class="row g-0 ">
+<div class="row g-0">
   <div class="col-sm-6 col-md-8">
-<div class="btn-group">
+    <div class="btn-group">
       <button
         type="button"
         class="btn btn-primary dropdown-toggle"
@@ -13,7 +13,10 @@
         <li><a class="dropdown-item" href="/products">All</a></li>
         <li><a class="dropdown-item" href="/products/laptop">Laptop</a></li>
         <li><a class="dropdown-item" href="/products/phone">Phone</a></li>
-        <li><a class="dropdown-item" href="/products/equipment">Equipment</a></li>
+        <li><a
+            class="dropdown-item"
+            href="/products/equipment"
+          >Equipment</a></li>
         <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href="/products/other">Other</a></li>
       </ul>
@@ -58,12 +61,21 @@
           <a href="/products/{{id}}/edit?allow=true" class="card-link">Edit</a>
         </div>
       </div>
+
+      <div class="myCard">
+        <div class="icon">
+        {{!-- <span>11</span> --}}
+          <a href="/card" class="text-decoration-none">
+         <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16"> <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z" fill="blue"></path> </svg>
+          </a>
+        </div>
+      </div>
     {{/each}}
   </div>
 {{else}}
   <div class="w-80 mx-auto mt-5 text-center myAddForm">
-      <h4>Not Found 😔</h4>
-      <a href="/products" class="text-decoration-none">Go back ...</a>
+    <h4>Not Found 😔</h4>
+    <a href="/products" class="text-decoration-none">Go back ...</a>
   </div>
 {{/if}}
 
