@@ -7,6 +7,7 @@ const addRouter = require("./routes/add");
 const productsRouter = require("./routes/products");
 const cardRouter = require("./routes/card");
 const authRouter = require("./routes/auth");
+const User = require('./models/user')
 const app = express();
 const mongoose = require("mongoose");
 
@@ -19,6 +20,16 @@ const hbs = exphbs.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", "views");
+
+app.use(async (req, res, next)=>{
+  try {
+    const user = await User.findById("63f4b4fd4fed0fb769f1bf76")
+    req.user = user
+    next()
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -41,6 +52,17 @@ const starter = async () => {
       useNewUrlParser: true,
     });
     console.log("Mongo is connected");
+
+    const candidate = await User.findOne()
+
+    if(!candidate){
+      const info = {
+        email: "mrfarhod58@gmail.com",
+        name: "Farhod",
+        card: {items: []}
+      }
+      const user = User.create(info)
+    }
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {

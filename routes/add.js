@@ -11,9 +11,8 @@ router.get("/",(req, res)=>{
 })
 
 router.post("/",async (req, res)=>{
-
-    const product = await Product.create(req.body)
-
+    const data = {...req.body, userId:req.user} // shu orqali postni kim yaratganini bila olamiz
+    const product = await (await Product.create(data))
     console.log(product);
     // const {name, quality, tel, description, image, category, address, price} = req.body
     // const product = new Product(name, quality, tel, description, image, category, address, price)

@@ -1,10 +1,11 @@
 const {Router} = require("express")
 const Product = require("../models/product")
+const User = require("../models/user")
 
 const router = Router()
 
 router.get("/", async(req, res)=>{
-    const products = await Product.find()
+    const products = await Product.find().populate("userId")
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
@@ -45,9 +46,11 @@ router.get("/other", async(req, res)=>{
 })
 router.get("/:id", async (req, res)=>{
     const id = req.params.id
-    const product = await Product.findById(id).lean( )
+    const product = await Product.findById(id)
+    const user = await User.findById(product.userId)
     res.render("detail", {
-        product: product
+        product: product,
+        user: user,
     })
 })
 router.get("/:id/edit", async (req, res)=>{
