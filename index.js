@@ -1,5 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const Handlebars = require('handlebars');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 const homeRouter = require("./routes/home");
 const addRouter = require("./routes/add");
 const productsRouter = require("./routes/products");
@@ -11,6 +13,7 @@ const mongoose = require("mongoose");
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
 app.engine("hbs", hbs.engine);
@@ -33,6 +36,7 @@ const starter = async () => {
       "mongodb+srv://farhod:f79cMiYYYphGDQxR@cluster0.ruecq8q.mongodb.net/?retryWrites=true&w=majority";
       
       mongoose.set("strictQuery", false);
+      
       await mongoose.connect(url, {
       useNewUrlParser: true,
     });

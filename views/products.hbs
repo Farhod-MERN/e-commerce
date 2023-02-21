@@ -56,9 +56,9 @@
           <li class="list-group-item">A third item</li> }}
         </ul>
         <div class="card-body">
-          <a href="/products/{{id}}" class="card-link text-decoration-none">Read
+          <a href="/products/{{_id}}" class="card-link text-decoration-none">Read
             more</a>
-          <a href="/products/{{id}}/edit?allow=true" class="card-link">Edit</a>
+          <a href="/products/{{_id}}/edit?allow=true" class="card-link">Edit</a>
         </div>
       </div>
 
@@ -74,8 +74,24 @@
   </div>
 {{else}}
   <div class="w-80 mx-auto mt-5 text-center myAddForm">
-    <h4>Not Found 😔</h4>
-    <a href="/products" class="text-decoration-none">Go back ...</a>
+    <div class="text-center">
+    <div class="container-fluid  mt-100">
+		 <div class="row">	 
+			<div class="col-md-12">
+				<div class="card mt-md-5 mt-lg-5">
+						<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center">
+									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+									<h3><strong>There aren't any product</strong></h3>
+									<h4>Add something to make me happy :)</h4>
+									<a href="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+								</div>
+		  				</div>
+    				</div>
+					</div>
+				 </div>
+				</div>
+  </div>
   </div>
 {{/if}}
 

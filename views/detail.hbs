@@ -42,7 +42,7 @@
           </tbody>
         </table>
         <form action="/card/add" method="POST">
-            <input type="hidden" name="id" value="{{product.id}}">
+            <input type="hidden" name="id" value="{{product._id}}">
             <button type="submit" class="btn btn-primary">Buy <span class="price">{{product.price}}</span></button>
         </form>
         <hr class="m-5">
