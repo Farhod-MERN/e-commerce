@@ -8,7 +8,7 @@ router.get("/", async(req, res)=>{
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
-        products: products,
+        products: products.reverse(),
     })
 })
 router.get("/laptop", async(req, res)=>{
@@ -16,7 +16,7 @@ router.get("/laptop", async(req, res)=>{
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
-        products: products ? products : [],
+        products: products ? products.reverse() : [],
     })
 })
 router.get("/phone", async(req, res)=>{
@@ -24,7 +24,7 @@ router.get("/phone", async(req, res)=>{
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
-        products: products ? products : [],
+        products: products ? products.reverse() : [],
     })
 })
 router.get("/equipment", async(req, res)=>{
@@ -32,7 +32,7 @@ router.get("/equipment", async(req, res)=>{
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
-        products: products ? products : [],
+        products: products ? products.reverse() : [],
     })
 })
 router.get("/other", async(req, res)=>{
@@ -40,7 +40,7 @@ router.get("/other", async(req, res)=>{
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
-        products: products ? products : [],
+        products: products ? products.reverse() : [],
     })
 })
 router.get("/:id", async (req, res)=>{
@@ -68,5 +68,17 @@ router.post("/edit", async (req, res)=>{
     await Product.findByIdAndUpdate(req.body.id, req.body)
     res.redirect("/products")
 })
+router.get("/remove/:id", async (req, res)=>{
+    // Product.deleteOne({_id: req.params.id})
+
+    try {
+        await Product.findByIdAndRemove(req.params.id)
+        res.redirect("/products")
+    } catch (error) {
+        console.log(error);        
+    }
+})
+
+
 
 module.exports = router
