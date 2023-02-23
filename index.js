@@ -8,6 +8,7 @@ const addRouter = require("./routes/add");
 const productsRouter = require("./routes/products");
 const cardRouter = require("./routes/card");
 const authRouter = require("./routes/auth");
+const feedbackRouter = require("./routes/feedback")
 const User = require('./models/user')
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/add", addRouter);
 app.use("/products", productsRouter);
 app.use("/card", cardRouter);
 app.use("/auth", authRouter);
+app.use("/feedback", feedbackRouter)
 app.use(express.json());
 
 async function starter (){

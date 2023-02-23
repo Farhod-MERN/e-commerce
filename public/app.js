@@ -1,3 +1,4 @@
+
 // Format Price
 const toCurrency = (price)=>{
   return new Intl.NumberFormat("us-US", {
