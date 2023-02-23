@@ -25,7 +25,6 @@ router.post("/",async (req, res)=>{
     })
     try {
         await product.save()
-        console.log(product);
         res.redirect("/products") 
 
     } catch (error) {

@@ -46,24 +46,24 @@
           class="card-img-top border border-2 p-3 rounded myCover"
           alt="image"
         />
-        <div class="card-body">
+        <div class="card-body py-1">
           <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{description}}</p>
         </div>
-        <form action="/card/add" method="POST">
-            <input type="hidden" name="id" value="{{_id}}">
-            <button type="submit" class="btn btn-primary btn-sm mb-1"><span class="price">{{price}}</span></button>
-          </form>
-        <ul class="list-group list-group-flush">
-          {{!-- <li class="list-group-item"><i class="price">{{price}}</i></li> --}}
-          {{! <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li> }}
-        </ul>
-        <div class="card-body">
+        <div class="card-body py-2">
           <a href="/products/{{_id}}" class="card-link text-decoration-none">Read
             more</a>
           <a href="/products/{{_id}}/edit?allow=true" class="card-link">Edit</a>
         </div>
+        <ul class="list-group list-group-flush mb-1">
+          {{!-- <li class="list-group-item"><i class="price">{{price}}</i></li> --}}
+          {{! <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li> }}
+        </ul>
+        <form action="/card/add" method="POST">
+            <input type="hidden" name="id" value="{{_id}}">
+            <button type="submit" class="btn btn-primary btn-sm mb-1"><span class="price">{{price}}</span></button>
+          </form>
       </div>
 
       <div class="myCard">

@@ -53,7 +53,7 @@ if ($card) {
                             +
                           </button> 
                         </td>
-                        <td><button type="button" data-id="${c.id}" class="js-remove btn btn-link btn-sm btn-rounded text-decoration-none">
+                        <td><button type="button" data-id="${c._id}" class="js-remove btn btn-link btn-sm btn-rounded text-decoration-none">
                             -
                           </button>
                         </td>

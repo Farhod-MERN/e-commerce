@@ -5,7 +5,7 @@ const User = require("../models/user")
 const router = Router()
 
 router.get("/", async(req, res)=>{
-    const products = await Product.find().populate("userId")
+    const products = await Product.find().populate("userId", "email name")
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
