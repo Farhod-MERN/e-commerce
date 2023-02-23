@@ -12,6 +12,7 @@ router.get("/", async(req, res)=>{
         products: products.reverse(),
     })
 })
+
 router.get("/laptop", async(req, res)=>{
     const products = await Product.find({category : "Laptop"})
     res.render("products", {
@@ -44,15 +45,6 @@ router.get("/other", async(req, res)=>{
         products: products ? products.reverse() : [],
     })
 })
-router.get("/:id", async (req, res)=>{
-    const id = req.params.id
-    const product = await Product.findById(id)
-    const user = await User.findById(product.userId)
-    res.render("detail", {
-        product: product,
-        user: user,
-    })
-})
 router.get("/:id/edit", async (req, res)=>{
     if(!req.query.allow){
         return res.redirect("/")
@@ -66,14 +58,8 @@ router.get("/:id/edit", async (req, res)=>{
         product: product
     })
 })
-
-router.post("/edit", async (req, res)=>{
-    await Product.findByIdAndUpdate(req.body.id, req.body)
-    res.redirect("/products")
-})
 router.get("/remove/:id", async (req, res)=>{
     // Product.deleteOne({_id: req.params.id})
-
     try {
         await Product.findByIdAndRemove(req.params.id)
         res.redirect("/products")
@@ -82,6 +68,18 @@ router.get("/remove/:id", async (req, res)=>{
     }
 })
 
-
+router.get("/:id", async (req, res)=>{
+    const id = req.params.id
+    const product = await Product.findById(id)
+    const user = await User.findById(product.userId)
+    res.render("detail", {
+        product: product,
+        user: user,
+    })
+})
+router.post("/edit", async (req, res)=>{
+    await Product.findByIdAndUpdate(req.body.id, req.body)
+    res.redirect("/products")
+})
 
 module.exports = router

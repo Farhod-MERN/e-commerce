@@ -50,8 +50,12 @@
           <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{description}}</p>
         </div>
+        <form action="/card/add" method="POST">
+            <input type="hidden" name="id" value="{{_id}}">
+            <button type="submit" class="btn btn-primary btn-sm mb-1"><span class="price">{{price}}</span></button>
+          </form>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i class="price">{{price}}</i></li>
+          {{!-- <li class="list-group-item"><i class="price">{{price}}</i></li> --}}
           {{! <li class="list-group-item">A second item</li>
           <li class="list-group-item">A third item</li> }}
         </ul>
@@ -84,7 +88,7 @@
 									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
 									<h3><strong>There aren't any product</strong></h3>
 									<h4>Add something to make me happy :)</h4>
-									<a href="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+									<a href="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Add something</a>
 								</div>
 		  				</div>
     				</div>
