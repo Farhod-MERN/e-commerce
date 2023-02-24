@@ -105,6 +105,9 @@
     border: none;
 }
 /* ----------------Order List -------------------------------  */
+.myOrderCard{
+    min-height: calc(100vh - 350px);
+}
 /* .gradient-custom {
     background: #cd9cf2;
     

@@ -1,3 +1,18 @@
+// format Date 
+const toData = (date)=>{
+  return new Intl.DateTimeFormat("uz-UZ",{
+    day: '2-digit',
+    month: "2-digit",
+    year: "numeric",
+    hour:"2-digit",
+    minute:"2-digit",
+    second:"2-digit"
+  }).format( new Date(date))
+}
+
+document.querySelectorAll(".data").forEach(s =>{
+  s.textContent = toData(s.textContent)
+})
 
 // Format Price
 const toCurrency = (price)=>{
