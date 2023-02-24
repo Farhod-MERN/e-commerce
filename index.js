@@ -10,9 +10,10 @@ const cardRouter = require("./routes/card");
 const authRouter = require("./routes/auth");
 const feedbackRouter = require("./routes/feedback")
 const orderRouter = require("./routes/order")
+const session = require("express-session")
 const User = require('./models/user')
 const app = express();
-
+const varMiddleware = require("./middleware/var")
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
@@ -22,6 +23,14 @@ const hbs = exphbs.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", "views");
+
+app.use(session({
+  secret: "My secret key",
+  resave: false,
+  saveUninitialized:false,
+}))
+
+app.use(varMiddleware)
 
 app.use(async (req, res, next)=>{
   try {
@@ -84,3 +93,4 @@ starter()
 // f79cMiYYYphGDQxR
 
 // mongodb+srv://farhod:f79cMiYYYphGDQxR@cluster0.ruecq8q.mongodb.net/?retryWrites=true&w=majority
+//  cd /d/2_WEB/5_Express/myOlx
