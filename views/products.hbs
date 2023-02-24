@@ -1,9 +1,9 @@
-<div class="row g-0">
-  <div class="col-sm-6 col-md-8 px-md-5 px-lg-5 px-3">
+<div class="row g-0 mx-md-5 mx-lg-5">
+  <div class="col-5 col-sm-6 col-md-8  mx-auto">
     <div class="btn-group">
       <button
         type="button"
-        class="btn btn-primary dropdown-toggle"
+        class="btn btn-outline-primary dropdown-toggle"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
@@ -22,22 +22,20 @@
       </ul>
     </div>
   </div>
-  <div class="col-6 col-md-4 px-md-5 px-lg-5 px-3">
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search any product by name"
-        aria-label="Recipient's username with two button addons"
-      />
-      <button class="btn btn-outline-secondary" type="button">❌</button>
-      <button class="btn btn-primary" type="button">🔍</button>
-    </div>
+  <div class="col-6 col-md-4">
+            <div class="input-group w-100">
+                <input class="form-control border-end-0 border-primary rounded-pill" type="search" value="" placeholder="Search by name..." id="example-search-input">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-primary border-bottom-0 border rounded-pill ms-n5" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
   </div>
 </div>
-
 {{#if products.length}}
   <div class="productWrapper my-3 px-md-5 px-lg-5 px-3">
+    
     {{#each products}}
       <div class="card p-2">
         <img
@@ -51,8 +49,10 @@
           <p class="card-text">{{description}}</p>
         </div>
         <div class="card-body py-2">
-          <a href="/products/{{_id}}" class="card-link text-decoration-none">Read
-            more</a>
+          <a
+            href="/products/{{_id}}"
+            class="card-link text-decoration-none"
+          >Read more</a>
           <a href="/products/{{_id}}/edit?allow=true" class="card-link">Edit</a>
         </div>
         <ul class="list-group list-group-flush mb-1">
@@ -61,16 +61,18 @@
           <li class="list-group-item">A third item</li> }}
         </ul>
         <form action="/card/add" method="POST">
-            <input type="hidden" name="id" value="{{_id}}">
-            <button type="submit" class="btn btn-primary btn-sm mb-1"><span class="price">{{price}}</span></button>
-          </form>
+          <input type="hidden" name="id" value="{{_id}}" />
+          <button type="submit" class="btn btn-primary btn-sm mb-1"><span
+              class="price"
+            >{{price}}</span></button>
+        </form>
       </div>
 
       <div class="myCard">
         <div class="icon">
-        {{!-- <span>11</span> --}}
+          {{! <span>11</span> }}
           <a href="/card" class="text-decoration-none">
-          <img src="/img/basket.png" alt="">
+            <img src="/img/basket.png" alt="" />
           </a>
         </div>
       </div>
@@ -79,23 +81,32 @@
 {{else}}
   <div class="w-80 mx-auto mt-5 text-center myAddForm">
     <div class="text-center">
-    <div class="container-fluid  mt-100">
-		 <div class="row">	 
-			<div class="col-md-12">
-				<div class="card mt-md-5 mt-lg-5">
-						<div class="card-body cart">
-								<div class="col-sm-12 empty-cart-cls text-center">
-									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
-									<h3><strong>There aren't any product</strong></h3>
-									<h4>Add something to make me happy :)</h4>
-									<a href="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Add something</a>
-								</div>
-		  				</div>
-    				</div>
-					</div>
-				 </div>
-				</div>
-  </div>
+      <div class="container-fluid mt-100">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mt-md-5 mt-lg-5">
+              <div class="card-body cart">
+                <div class="col-sm-12 empty-cart-cls text-center">
+                  <img
+                    src="https://i.imgur.com/dCdflKN.png"
+                    width="130"
+                    height="130"
+                    class="img-fluid mb-4 mr-3"
+                  />
+                  <h3><strong>There aren't any product</strong></h3>
+                  <h4>Add something to make me happy :)</h4>
+                  <a
+                    href="/add"
+                    class="btn btn-primary cart-btn-transform m-3"
+                    data-abc="true"
+                  >Add something</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 {{/if}}
 
