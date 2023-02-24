@@ -104,6 +104,10 @@
 .myRegister{
     border: none;
 }
+.myRegister .img-fluid:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+}
 /* ----------------Order List -------------------------------  */
 .myOrderCard{
     min-height: calc(100vh - 350px);
