@@ -11,6 +11,7 @@ const authRouter = require("./routes/auth");
 const feedbackRouter = require("./routes/feedback")
 const orderRouter = require("./routes/order")
 const session = require("express-session")
+const MongoStore = require("connect-mongodb-session")(session)
 const User = require('./models/user')
 const app = express();
 const varMiddleware = require("./middleware/var")
@@ -20,27 +21,23 @@ const hbs = exphbs.create({
   handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
-app.engine("hbs", hbs.engine);
-app.set("view engine", "hbs");
-app.set("views", "views");
-
+const MONGO_URI = "mongodb+srv://farhod:f79cMiYYYphGDQxR@cluster0.ruecq8q.mongodb.net/?retryWrites=true&w=majority";
+const store = new MongoStore({
+  collection: "sessions",
+  uri: MONGO_URI,
+})
 app.use(session({
   secret: "My secret key",
   resave: false,
   saveUninitialized:false,
+  store: store
 }))
 
-app.use(varMiddleware)
+app.engine("hbs", hbs.engine);
+app.set("view engine", "hbs");
+app.set("views", "views");
 
-app.use(async (req, res, next)=>{
-  try {
-    const user = await User.findById("63f6115fa9396c2663ec7fbd")
-    req.user = user // bu global o'zgaruvchi bo'ldi, buni qayerda req bo'lsa o'sha joyda ishlata olaman
-    next()
-  } catch (error) {
-    console.log(error);
-  }
-})
+app.use(varMiddleware)
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -56,27 +53,24 @@ app.use(express.json());
 
 async function starter (){
   try {
-    const url =
-      "mongodb+srv://farhod:f79cMiYYYphGDQxR@cluster0.ruecq8q.mongodb.net/?retryWrites=true&w=majority";
-      
       mongoose.set("strictQuery", false);
       
-      await mongoose.connect(url, {
+      await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true
     });
     console.log("Mongo is connected");
 
-    const candidate = await User.findOne()
+    // const candidate = await User.findOne()
 
-    if(!candidate){
-      const user = new User({
-        email: "mrfarhod58@gmail.com",
-        name: "Farhod",
-        card: {items: []}
-      })
-      await user.save()
+    // if(!candidate){
+    //   const user = new User({
+    //     email: "mrfarhod58@gmail.com",
+    //     name: "Farhod",
+    //     card: {items: []}
+    //   })
+    //   await user.save()
 
-    }
+    // }
 
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
