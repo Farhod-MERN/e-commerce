@@ -62,18 +62,6 @@ async function starter (){
     });
     console.log("Mongo is connected");
 
-    // const candidate = await User.findOne()
-
-    // if(!candidate){
-    //   const user = new User({
-    //     email: "mrfarhod58@gmail.com",
-    //     name: "Farhod",
-    //     card: {items: []}
-    //   })
-    //   await user.save()
-
-    // }
-
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
       console.log(`Server is running : ${PORT}`);

@@ -4,6 +4,7 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   const author = await req.user;
+  console.log(author);
   try {
     const orders = await (await Order.find({"user.userId": req.user._id}).populate("user.userId")).reverse(); //faqat shu userni orderlarini ko'rsatadi
     res.render("order", {
@@ -30,7 +31,7 @@ router.post("/", async (req, res) => {
     }));
     const order = new Order({
       user: {
-        name: req.user.name,
+        name: req.user.firstname,
         userId: req.user,
       },
       products: products,

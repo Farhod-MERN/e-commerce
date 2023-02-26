@@ -2,7 +2,14 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
   email: { type: String, required: true },
-  name: { type: String, required: true },
+  firstname: { type: String, required: true },
+  lastname: { type: String, required: true },
+  address: { type: String, required: true },
+  number: { type: Number, required: true },
+  password: { type: String, required: true },
+  gander: { type: String, required: true },
+  bio: { type: String, required: true },
+  ico: { type: String, default: "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" },
   card: {
     items: [
       {
