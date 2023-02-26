@@ -1,16 +1,17 @@
 const {Router} = require("express")
 const Product = require("../models/product")
+const authMiddleware = require("../middleware/auth")
 
 const router = Router()
 
-router.get("/",(req, res)=>{
+router.get("/", authMiddleware,(req, res)=>{
     res.render("add",{
         title: "olx - Create Product",
         isAdd: true,
     })
 })
 
-router.post("/",async (req, res)=>{
+router.post("/",authMiddleware,async (req, res)=>{
     console.log(req.body);
     const product = new Product({
         name: req.body.name,

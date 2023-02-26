@@ -53,19 +53,33 @@
             href="/products/{{_id}}"
             class="card-link text-decoration-none"
           >Read more</a>
-          <a href="/products/{{_id}}/edit?allow=true" class="card-link">Edit</a>
+          {{#if @root.isAuth}}
+              <a href="/products/{{_id}}/edit?allow=true" class="card-link">Edit</a>
+          {{else}}
+              <a href="/auth/login" class="card-link">Edit</a>
+          {{/if}}
         </div>
         <ul class="list-group list-group-flush mb-1">
           {{!-- <li class="list-group-item"><i class="price">{{price}}</i></li> --}}
           {{! <li class="list-group-item">A second item</li>
           <li class="list-group-item">A third item</li> }}
         </ul>
-        <form action="/card/add" method="POST">
+        {{#if @root.isAuth}}
+          <form action="/card/add" method="POST">
           <input type="hidden" name="id" value="{{_id}}" />
           <button type="submit" class="btn btn-primary btn-sm mb-1"><span
               class="price"
             >{{price}}</span></button>
         </form>
+        {{else}}
+          <form action="/card/add" method="POST">
+          <input type="hidden" name="id" value="{{_id}}" />
+          <button disabled="true" type="submit" class="btn btn-primary btn-sm mb-1"><span
+              class="price"
+            >{{price}}</span></button>
+        </form>
+        {{/if}}
+
       </div>
 
       <div class="myCard">

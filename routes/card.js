@@ -1,6 +1,7 @@
 const {Router} = require("express")
 const router = Router()
 const Product = require("../models/product")
+const authMiddleware = require("../middleware/auth")
 
 function mapCard(card){
     return card.items.map((s) =>({
@@ -15,13 +16,13 @@ function productPrice(products){
     }, 0)
 }
 
-router.post("/add",async (req, res)=>{
+router.post("/add", authMiddleware,async (req, res)=>{
     const product = await Product.findById(req.body.id)
     await req.user.AddToCard(product)
     res.redirect("/card")
 })
 
-router.get("/", async (req, res)=>{
+router.get("/",authMiddleware, async (req, res)=>{
     const user = await req.user.populate("card.items.productId") // bu yerda populate qilinishi kerak massivgacha yo'l va massivdagi nimani populate qilishni ko'rsatiladi
 
     const products = mapCard(user.card)
@@ -32,7 +33,7 @@ router.get("/", async (req, res)=>{
     })
 })
 
-router.delete("/remove/:id", async (req, res)=>{
+router.delete("/remove/:id", authMiddleware,async (req, res)=>{
     await req.user.removeFromCard(req.params.id)
     const user = await req.user.populate("card.items.productId")
     const products = mapCard(user.card)
