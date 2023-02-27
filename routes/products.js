@@ -51,12 +51,17 @@ router.get("/other", async(req, res)=>{
     })
 })
 router.get("/:id/edit", async (req, res)=>{
+    try{
+    const id = req.params.id
+    const product = await Product.findById(id)
+    
+    if(product.userId._id.toString() !== req.user._id.toString()){
+        res.redirect("/")
+    }
+    
     if(!req.query.allow){
         return res.redirect("/")
     }
-
-    const id = req.params.id
-    const product = await Product.findById(id)
 
     res.render("edit-product",{
         title: `Edit ${product.name}`,
@@ -64,6 +69,9 @@ router.get("/:id/edit", async (req, res)=>{
         userId: req.user ? req.user._id.toString() : null, 
 
     })
+    }catch(e){
+        console.log(e);
+    }
 })
 router.get("/remove/:id", async (req, res)=>{
     // Product.deleteOne({_id: req.params.id})
