@@ -16,6 +16,7 @@ const User = require('./models/user')
 const app = express();
 const varMiddleware = require("./middleware/var")
 const userMiddleware = require("./middleware/user")
+const flash = require("connect-flash")
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
@@ -27,6 +28,7 @@ const store = new MongoStore({
   collection: "sessions",
   uri: MONGO_URI,
 })
+app.use(flash())
 app.use(session({
   secret: "My secret key",
   resave: false,

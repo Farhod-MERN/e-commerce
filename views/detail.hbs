@@ -43,7 +43,11 @@
         </table>
         <form action="/card/add" method="POST">
             <input type="hidden" name="id" value="{{product._id}}">
+            {{#if @root.isAuth}}
             <button type="submit" class="btn btn-primary">Buy <span class="price">{{product.price}}</span></button>
+            {{else}}
+            <button disabled="true" type="submit" class="btn btn-primary">Buy <span class="price">{{product.price}}</span></button>
+            {{/if}}
         </form>
         <hr class="m-5">
         <h5 class="mt-0">About Author</h5>

@@ -6,11 +6,13 @@ const bcrypt = require("bcrypt")
 router.get("/register", async (req, res) => {
   res.render("register", {
     title: "olx | Register",
+    regError: req.flash("regError")
   });
 });
 router.get("/login", async (req, res) => {
   res.render("login", {
     title: "olx | Log in",
+    loginError: req.flash("loginError")
   });
 });
 router.get("/logout", async (req, res) => {
@@ -35,8 +37,12 @@ router.post("/login", async (req, res) => {
           res.redirect("/");
           console.log(req.body);
         });
+      }else{
+        req.flash("loginError", "Your password is wrong")
+        res.redirect("/auth/login")
       }
     } else {
+      req.flash("loginError", "User not found")
       res.redirect("/auth/login");
     }
   } catch (error) {
@@ -60,6 +66,7 @@ router.post("/register", async (req, res) => {
 
     const candidate = await User.findOne({ email });
     if (candidate) {
+      req.flash("regError", "This email is already exist ")
       res.redirect("/auth/register");
     } else {
       const hashPass = await bcrypt.hash(password, 10)

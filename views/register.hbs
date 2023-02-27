@@ -9,7 +9,13 @@
             </div>
             <div class="col-xl-6 px-md-3 shadow-sm rounded">
               <div class="card-body  text-black">
+                {{#if regError}}
+                  <div class="text-center alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error !</strong> {{regError}}.
+                  </div>
+                {{else}} 
                 <h4 class="mb-3 text-uppercase text-center">Sign Up</h4>
+              {{/if}}
                 <form action="/auth/register" method="POST">
                 <div class="row">
                   <div class="col-md-6 mb-2">
