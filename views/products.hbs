@@ -53,11 +53,13 @@
             href="/products/{{_id}}"
             class="card-link text-decoration-none"
           >Read more</a>
-          {{#if @root.isAuth}}
-              <a href="/products/{{_id}}/edit?allow=true" class="card-link">Edit</a>
-          {{else}}
-              <a href="/auth/login" class="card-link">Edit</a>
-          {{/if}}
+          {{#ifeq userId._id @root.userId}}
+              {{#if @root.isAuth}}
+                  <a href="/products/{{_id}}/edit?allow=true" class="card-link text-decoration-none">Edit</a>
+              {{else}}
+                  <a href="/auth/login" class="card-link">Edit</a>
+              {{/if}}
+          {{/ifeq}}
         </div>
         <ul class="list-group list-group-flush mb-1">
           {{!-- <li class="list-group-item"><i class="price">{{price}}</i></li> --}}

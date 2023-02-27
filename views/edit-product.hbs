@@ -74,6 +74,8 @@
   <div class="col-12">
     <input type="hidden" name="id" value="{{product._id}}" >
     <button class="btn btn-primary" type="submit">Save Changes</button>
-    <a class="btn btn-warning" href="/products/remove/{{product._id}}">Delete Product</a>
+    {{#ifeq product.userId._id @root.userId}}
+      <a class="btn btn-warning" href="/products/remove/{{product._id}}">Delete Product</a>
+    {{/ifeq}}
   </div>
 </form>

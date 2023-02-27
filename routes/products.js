@@ -5,12 +5,17 @@ const User = require("../models/user")
 const router = Router()
 
 router.get("/", async(req, res)=>{
+    try {
     const products = await Product.find().populate("userId", "email name")
     res.render("products", {
         title: "olx - Products",
         isProduct: true,
+        userId: req.user ? req.user._id.toString() : null, 
         products: products.reverse(),
     })
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 router.get("/laptop", async(req, res)=>{
@@ -55,7 +60,9 @@ router.get("/:id/edit", async (req, res)=>{
 
     res.render("edit-product",{
         title: `Edit ${product.name}`,
-        product: product
+        product: product,
+        userId: req.user ? req.user._id.toString() : null, 
+
     })
 })
 router.get("/remove/:id", async (req, res)=>{

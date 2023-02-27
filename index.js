@@ -21,6 +21,7 @@ const flash = require("connect-flash")
 const hbs = exphbs.create({
   defaultLayout: "main",
   extname: "hbs",
+  helpers: require("./utils"),
   handlebars: allowInsecurePrototypeAccess(Handlebars)
 });
 
@@ -56,6 +57,7 @@ app.use("/feedback", feedbackRouter)
 app.use("/orders", orderRouter)
 app.use("/profile", profileRouter)
 app.use(express.json());
+
 
 async function starter (){
   try {
