@@ -10,6 +10,7 @@ const cardRouter = require("./routes/card");
 const authRouter = require("./routes/auth");
 const feedbackRouter = require("./routes/feedback")
 const orderRouter = require("./routes/order")
+const profileRouter = require("./routes/profile")
 const session = require("express-session")
 const MongoStore = require("connect-mongodb-session")(session)
 const User = require('./models/user')
@@ -53,6 +54,7 @@ app.use("/card", cardRouter);
 app.use("/auth", authRouter);
 app.use("/feedback", feedbackRouter)
 app.use("/orders", orderRouter)
+app.use("/profile", profileRouter)
 app.use(express.json());
 
 async function starter (){
