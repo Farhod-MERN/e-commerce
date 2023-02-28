@@ -2,10 +2,10 @@
       <div class="col">
         <div class="card card-registration my-4 myRegister">
           <div class="row g-0">
-            <div class="col-xl-6 d-none d-xl-block rounded">
-              <img src="https://st2.depositphotos.com/1001599/43046/v/600/depositphotos_430460192-stock-illustration-sign-in-page-abstract-concept.jpg"
-                alt="Sample photo" class="img-fluid "
-                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/edit-social-media-profile-5295893-4412910.png"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; padding-left: 90px;" />
             </div>
             <div class="col-xl-6 px-md-3 shadow-sm rounded">
               <div class="card-body  text-black">
@@ -14,7 +14,7 @@
                     <strong>Error !</strong> {{regError}}.
                   </div>
                 {{else}} 
-                <h4 class="mb-3 text-uppercase text-center">Sign Up</h4>
+                <h4 class="mb-3 text-uppercase text-center">Edit Profile</h4>
               {{/if}}
                 <form action="/profile/edit" method="POST">
                 <div class="row">
@@ -85,9 +85,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end pt-3">
-                  <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account ? <a href="/auth/login"
-                class="link-danger">Log in</a></p>
-                  <button type="submit" class="btn btn-primary btn-md ms-2">Sign Up</button>
+                  <button type="submit" class="btn btn-primary btn-md ms-2">Save Changes</button>
                 </div>
                 </form>
 

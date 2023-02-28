@@ -7,7 +7,8 @@ const {regVal} = require("../utils/validate")
 router.get("/register", async (req, res) => {
   res.render("register", {
     title: "olx | Register",
-    regError: req.flash("regError")
+    regError: req.flash("regError"),
+    data: req.flash("data")[0]
   });
 });
 router.get("/login", async (req, res) => {
@@ -66,6 +67,7 @@ router.post("/register",regVal ,async (req, res) => {
     const errors = validationResult(req)
     if(!errors.isEmpty()){
       req.flash("regError", errors.array()[0].msg)
+      req.flash("data", req.body)
       return res.status(422).redirect("/auth/register")
     }
     
