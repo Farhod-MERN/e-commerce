@@ -8,7 +8,7 @@ const userSchema = new Schema({
   number: { type: Number, required: true },
   password: { type: String, required: true },
   gander: { type: String, required: true },
-  bio: { type: String, required: true },
+  bio: { type: String, default: "Your bio is here" },
   ico: { type: String, default: "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" },
   card: {
     items: [

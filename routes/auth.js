@@ -2,7 +2,8 @@ const { Router } = require("express");
 const User = require("../models/user");
 const router = Router();
 const bcrypt = require("bcrypt")
-
+const {body, validationResult} = require("express-validator/check")
+const {regVal} = require("../utils/validate")
 router.get("/register", async (req, res) => {
   res.render("register", {
     title: "olx | Register",
@@ -50,7 +51,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/register", async (req, res) => {
+router.post("/register",regVal ,async (req, res) => {
   try {
     const {
       email,
@@ -60,16 +61,15 @@ router.post("/register", async (req, res) => {
       number,
       password,
       gander,
-      bio,
-      ico,
     } = req.body;
 
-    const candidate = await User.findOne({ email });
-    if (candidate) {
-      req.flash("regError", "This email is already exist ")
-      res.redirect("/auth/register");
-    } else {
-      const hashPass = await bcrypt.hash(password, 10)
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+      req.flash("regError", errors.array()[0].msg)
+      return res.status(422).redirect("/auth/register")
+    }
+    
+    const hashPass = await bcrypt.hash(password, 10)
       const user = new User({
         email,
         firstname,
@@ -78,15 +78,11 @@ router.post("/register", async (req, res) => {
         number,
         password: hashPass,
         gander,
-        bio,
-        ico,
         card: { items: [] },
       });
+
       await user.save();
       res.redirect("/auth/login");
-    }
-
-    res.redirect("/auth/login");
   } catch (error) {
     console.log(error);
   }
