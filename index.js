@@ -58,6 +58,10 @@ app.use("/orders", orderRouter)
 app.use("/profile", profileRouter)
 app.use(express.json());
 
+app.use((req,res)=>{
+  res.render("notFound")
+}) 
+
 
 async function starter (){
   try {

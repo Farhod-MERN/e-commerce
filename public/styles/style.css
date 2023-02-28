@@ -1,116 +1,116 @@
-::-webkit-scrollbar-thumb{
-    background-image: linear-gradient(to right bottom, #259aee, #819ef4);
- }
- ::-webkit-scrollbar{
-    width: 6px;
-    height: 0px;
- }
-.myNavbar{
-    background-color: #0D6EFD;
-    border-radius: 0 0 3px 3px;
-    position: sticky;
-    top: 0;
-    z-index: 99999999999;
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to right bottom, #259aee, #819ef4);
 }
-.myLogo{
-    filter: invert(1);
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0px;
 }
-.nav-link{
-    font-weight: 600 !important;
-    font-size: 1rem !important;
-    color: white;
+.myNavbar {
+  background-color: #0d6efd;
+  border-radius: 0 0 3px 3px;
+  position: sticky;
+  top: 0;
+  z-index: 99999999999;
 }
-.nav-item:hover{
-    background-color: #0DCFFF;
+.myLogo {
+  filter: invert(1);
 }
-.myActive{
-    color: rgb(21, 0, 255) !important;
-    /* transform: scale(1.3); */
+.nav-link {
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: white;
+}
+.nav-item:hover {
+  background-color: #0dcfff;
+}
+.myActive {
+  color: rgb(21, 0, 255) !important;
+  /* transform: scale(1.3); */
 }
 
-.myAddForm{
-    min-height: calc(100vh - 300px);
+.myAddForm {
+  min-height: calc(100vh - 300px);
 }
-.myFeedback{
-    min-height: calc(100vh - 200px);
+.myFeedback {
+  min-height: calc(100vh - 200px);
 }
-.productWrapper{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: 1rem;
+.productWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1rem;
 }
-.myCover{
-    object-fit: fill;
+.myCover {
+  object-fit: fill;
 }
-.price{
-    font-size: 1rem;
-    font-weight: 600;
+.price {
+  font-size: 1rem;
+  font-weight: 600;
 }
 /* carousel------------------------------------------- */
-.myprevious{
-    color: blue !important;
-    transform: scale(2);
+.myprevious {
+  color: blue !important;
+  transform: scale(2);
 }
 .carousel-indicators button {
-    background-color: blue !important;
+  background-color: blue !important;
 }
 /* end carousel------------------------------------------- */
 
 /*Card------------------------------------------- */
 
-.myCard{
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    cursor: pointer;
-    z-index: 9999;
+.myCard {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  z-index: 9999;
 }
-.myCard img{
-    width: 55px;
-    height: 55px;
-    color:azure;
+.myCard img {
+  width: 55px;
+  height: 55px;
+  color: azure;
 }
-.myCard .icon{
-    border-radius:50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: icon 2s ease-in-out infinite alternate;
+.myCard .icon {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: icon 2s ease-in-out infinite alternate;
 }
-.myCard .icon:hover{
-    filter: opacity(0.8);
+.myCard .icon:hover {
+  filter: opacity(0.8);
 }
-.card .card-header{
-    border: none;
-    background-color: transparent;
+.card .card-header {
+  border: none;
+  background-color: transparent;
 }
-.myBasket .card{
-    border: none;
+.myBasket .card {
+  border: none;
 }
-.myBasket{
-    min-height: calc(100vh - 210px);
+.myBasket {
+  min-height: calc(100vh - 210px);
 }
 /*end Card------------------------------------------- */
 
-.myMarketing{
-    box-sizing: border-box;
+.myMarketing {
+  box-sizing: border-box;
 }
-.myLogin{
-    min-height: calc(100vh - 250px);
-    margin-top: 90px;
+.myLogin {
+  min-height: calc(100vh - 250px);
+  margin-top: 90px;
 }
-.myRegister{
-    border: none;
+.myRegister {
+  border: none;
 }
-.myRegister .img-fluid:hover{
-    transform: scale(1.01);
-    cursor: pointer;
+.myRegister .img-fluid:hover {
+  transform: scale(1.01);
+  cursor: pointer;
 }
 /* ----------------Order List -------------------------------  */
-.myOrderCard{
-    min-height: calc(100vh - 350px);
+.myOrderCard {
+  min-height: calc(100vh - 350px);
 }
 /* .gradient-custom {
     background: #cd9cf2;
@@ -120,30 +120,66 @@
     background: linear-gradient(to top left, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1))
     } */
 /* ----------------end Order List -------------------------------  */
+
+/* ----------------Not found -------------------------------  */
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: "Arvo", serif;
+  
+}
+.page_404 img {
+  width: 100%;
+}
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+.contant_box_404 {
+  margin-top: -50px;
+}
+/* ----------------end Not found -------------------------------  */
+
 @media (max-width: 766px) {
-        .deatilImage{
-            width: 100%;
-        }
-        .myCard{
-            right: 7px;
-            bottom: 17px;
-        }
-        .myCard .icon{
-            width: 50px;
-            height: 50px;
-        }
-        .myCard img{
-            width: 45px;
-            height: 45px;
-            color:azure;
-        }
-        .myLogin{
-            margin-top: 30px;
-        }
+  .deatilImage {
+    width: 100%;
+  }
+  .myCard {
+    right: 7px;
+    bottom: 17px;
+  }
+  .myCard .icon {
+    width: 50px;
+    height: 50px;
+  }
+  .myCard img {
+    width: 45px;
+    height: 45px;
+    color: azure;
+  }
+  .myLogin {
+    margin-top: 30px;
+  }
 }
 
 @keyframes icon {
-    to{
-        transform: scale(1.1);
-    }
+  to {
+    transform: scale(1.1);
+  }
 }
