@@ -1,6 +1,8 @@
 const {Router} = require("express")
 const Product = require("../models/product")
 const authMiddleware = require("../middleware/auth")
+const {addVal} = require("../utils/validate")
+const {validationResult} = require("express-validator/check")
 
 const router = Router()
 
@@ -11,8 +13,18 @@ router.get("/", authMiddleware,(req, res)=>{
     })
 })
 
-router.post("/",authMiddleware,async (req, res)=>{
-    console.log(req.body);
+router.post("/",authMiddleware, addVal,async (req, res)=>{
+
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        const {name, quality, tel, description, image, category, address, price} = req.body
+        res.render("add",{
+            title: "olx - Create Product",
+            isAdd: true,
+            data: {name, quality, tel, description, image, category, address, price},
+            error: errors.array()[0].msg
+        })
+    }
     const product = new Product({
         name: req.body.name,
         quality:req.body.quality,
