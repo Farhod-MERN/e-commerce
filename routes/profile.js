@@ -19,19 +19,17 @@ router.get("/edit/:id", async (req, res)=>{
     })
 })
 router.post("/edit", async (req, res)=>{
+    const hashPass = await bcrypt.hash(req.body.password , 10)
     const {
-        password,
         gander,
-        ico} = await req.user
-
-    
+        ico} = await req.user    
     const user = await User.findByIdAndUpdate(req.user._id, {
         email: req.body.email,
         firstname: req.body.firstname,
         lastname:req.body.lastname,
         address:req.body.address,
         number: req.body.number,
-        password:password,
+        password:hashPass,
         gander:gander,
         bio: req.bio,
         ico: ico} )
