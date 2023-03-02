@@ -15,6 +15,7 @@ const session = require("express-session")
 const MongoStore = require("connect-mongodb-session")(session)
 const User = require('./models/user')
 const path = require("path")
+const fileUpload = require("express-fileupload")
 const app = express();
 const varMiddleware = require("./middleware/var")
 const userMiddleware = require("./middleware/user")
@@ -38,6 +39,7 @@ app.use(session({
   saveUninitialized:false,
   store: store
 }))
+app.use(fileUpload())
 
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
