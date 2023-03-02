@@ -95,6 +95,10 @@ router.get("/:id", async (req, res)=>{
 })
 router.post("/edit", async (req, res)=>{
   const { image } = await req.files;
+  const png = image.name.slice(image.name.length - 4) === ".png"
+  const jpg = image.name.slice(image.name.length - 4) === ".jpg"
+  const jpeg = image.name.slice(image.name.length - 5) === ".jpeg"
+
   image.mv(path.resolve(__dirname, "..", "public/posts", image.name), async(err) => {
     if (err) {
       console.log(err);
@@ -104,7 +108,7 @@ router.post("/edit", async (req, res)=>{
         quality: req.body.quality,
         tel: req.body.tel,
         description: req.body.description,
-        image: `/posts/${image.name}`,
+        image: png || jpg || jpeg ? `/posts/${image.name}` : "https://ingoodcompany.asia/images/products_attr_img/matrix/default.png",
         category: req.body.category,
         address: req.body.address,
         price: req.body.price,

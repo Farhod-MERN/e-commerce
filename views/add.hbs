@@ -6,6 +6,9 @@
   {{else}}
     <h4 class="text-center mb-2">Add Product</h4>
   {{/if}}
+  {{#if addErr}}
+  <p>{{addErr}}</p>
+  {{/if}}
   <div class="col-md-4">
     <label for="validationCustom01" class="form-label">Product's Name</label>
     <input value="{{data.name}}" type="text" name="name" class="form-control" id="validationCustom01" required = "true" placeholder="HP Laptop 15s">
@@ -22,26 +25,17 @@
       <option>Perfect</option>
       <option>New</option>
     </select>
-    <div class="invalid-feedback">
-      Please select a valid state.
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationCustomUsername" class="form-label">Price</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">$</span>
       <input value="{{data.price}}" type="number" min="0" name="price" required="true" placeholder="1200" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required = "true">
-      <div class="invalid-feedback">
-        Please choose a username.
-      </div>
     </div>
   </div>
   <div class="col-md-8">
     <label for="validationCustom05" class="form-label">Address</label>
     <input value="{{data.address}}" type="text" name="address" class="form-control" placeholder="Fergana, Uzbekistan" id="validationCustom05" required = "true">
-    <div class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationCustom04" class="form-label">Category</label>
@@ -52,32 +46,20 @@
       <option>Equipment</option>
       <option>Other</option>
     </select>
-    <div class="invalid-feedback">
-      Please select a valid state.
-    </div>
   </div>
   <div class="col-md-8">
     {{!-- <label for="validationCustom05" class="form-label">Product's image</label>
     <input value="{{data.image}}" type="tel" name="image" class="form-control" placeholder="Please enter image's url" id="validationCustom05" required = "true"> --}}
-    <label for="formFile" class="form-label">Upload image</label>
+    <label for="formFile" class="form-label">Upload image in png, jpg or jpeg</label>
     <input name="image" class="form-control" type="file" id="formFile">
-    <div class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
   </div>
   <div class="col-md-8">
     <label for="validationCustom03" class="form-label">Description</label>
      <textarea class="form-control" name="description" placeholder="Describe your product ..." rows="6"  id="floatingTextarea2" required="true">{{data.description}}</textarea>
-    <div class="invalid-feedback">
-      Please provide a valid city.
-    </div>
   </div>
   <div class="col-md-4">
     <label for="validationCustom05" class="form-label">Tel</label>
     <input value="{{data.tel}}" type="tel" name="tel" class="form-control" placeholder="+998 ** *** ** **" id="validationCustom05" required = "true">
-    <div class="invalid-feedback">
-      Please provide a valid zip.
-    </div>
   </div>
   <div class="col-12">
     <button class="btn btn-primary" type="submit">Create Product</button>
