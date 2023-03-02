@@ -26,6 +26,6 @@ exports.addVal = [
   body("image", "Enter image's url correctly").isURL(),
   body("description", "Description should be min length 10 symbols").isString().isLength({min: 10}),
   body("tel", "Enter your number correctly").isNumeric().isLength({min: 9, max: 16}).trim(),
-  body("category", "Please select category").isLength({min: 3}),
-  body("quality", "Please select quality").isLength({min:3}),
+  body("category", "Please select quality and category").isLength({min: 1}),
+  body("quality", "Please select quality and category").isLength({min:1}),
 ]

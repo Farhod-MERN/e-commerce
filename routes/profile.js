@@ -2,15 +2,16 @@ const {Router} = require("express")
 const User = require("../models/user")
 const router = Router()
 const bcrypt = require("bcrypt")
+const auth = require("../middleware/auth")
 
-router.get("/:id", async (req, res)=>{
+router.get("/:id", auth,async (req, res)=>{
     const user = await User.findById(req.params.id)
     res.render("profile", {
         title: "olx | My Profile",
         profile: user
     })
 })
-router.get("/edit/:id", async (req, res)=>{
+router.get("/edit/:id", auth,async (req, res)=>{
     const profile = await req.user
 
     res.render("editProfile", {
@@ -18,7 +19,7 @@ router.get("/edit/:id", async (req, res)=>{
         profile: profile
     })
 })
-router.post("/edit", async (req, res)=>{
+router.post("/edit", auth, async (req, res)=>{
     const hashPass = await bcrypt.hash(req.body.password , 10)
     const {
         gander,

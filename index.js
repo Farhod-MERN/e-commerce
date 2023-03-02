@@ -14,6 +14,7 @@ const profileRouter = require("./routes/profile")
 const session = require("express-session")
 const MongoStore = require("connect-mongodb-session")(session)
 const User = require('./models/user')
+const path = require("path")
 const app = express();
 const varMiddleware = require("./middleware/var")
 const userMiddleware = require("./middleware/user")
@@ -45,7 +46,8 @@ app.set("views", "views");
 app.use(varMiddleware)
 app.use(userMiddleware)
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", homeRouter);
