@@ -1,6 +1,7 @@
 const {Router} = require("express")
 const Product = require("../models/product")
 const User = require("../models/user")
+const path = require("path")
 
 const router = Router()
 
@@ -93,7 +94,25 @@ router.get("/:id", async (req, res)=>{
     })
 })
 router.post("/edit", async (req, res)=>{
-    await Product.findByIdAndUpdate(req.body.id, req.body)
+  const { image } = await req.files;
+  image.mv(path.resolve(__dirname, "..", "public/posts", image.name), async(err) => {
+    if (err) {
+      console.log(err);
+    }
+    const product = {
+        name: req.body.name,
+        quality: req.body.quality,
+        tel: req.body.tel,
+        description: req.body.description,
+        image: `/posts/${image.name}`,
+        category: req.body.category,
+        address: req.body.address,
+        price: req.body.price,
+        userId: req.user,
+      }
+    await Product.findByIdAndUpdate(req.body.id, product)
+    
+  });
     res.redirect("/products")
 })
 

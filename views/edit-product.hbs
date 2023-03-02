@@ -1,4 +1,4 @@
-<form method="POST" action="/products/edit" class="col-md-8 mx-auto row g-3 needs-validation my-5 myAddForm shadow p-3 mb-5 bg-body rounded">
+<form enctype="multipart/form-data" method="POST" action="/products/edit" class="col-md-8 mx-auto row g-3 needs-validation my-5 myAddForm shadow p-3 mb-5 bg-body rounded">
   <h4 class="text-center mb-2">Edit Product: {{product.name}}</h4>
   <div class="col-md-4">
     <label for="validationCustom01" class="form-label">Product's Name</label>
@@ -51,8 +51,8 @@
     </div>
   </div>
   <div class="col-md-12">
-    <label for="validationCustom05" class="form-label">Product's image</label>
-    <input type="tel" name="image" class="form-control" value="{{product.image}}" placeholder="Please enter image's url" id="validationCustom05" required = "true">
+   <label for="formFile" class="form-label">Upload image</label>
+    <input required name="image" value="{{product.image}}" class="form-control" type="file" id="formFile">
     <div class="invalid-feedback">
       Please provide a valid zip.
     </div>
