@@ -36,10 +36,6 @@ router.post("/", authMiddleware, addVal, async (req, res) => {
     });
   }
   const { image } = await req.files;
-  const png = image.name.slice(image.name.length - 4) === ".png"
-  const jpg = image.name.slice(image.name.length - 4) === ".jpg"
-  const jpeg = image.name.slice(image.name.length - 5) === ".jpeg"
-  
   image.mv(path.resolve(__dirname, "..", "public/posts", image.name), (err) => {
     if (err) {
       console.log(err);
@@ -50,7 +46,7 @@ router.post("/", authMiddleware, addVal, async (req, res) => {
         quality: req.body.quality,
         tel: req.body.tel,
         description: req.body.description,
-        image: png || jpg || jpeg ? `/posts/${image.name}` : "https://ingoodcompany.asia/images/products_attr_img/matrix/default.png",
+        image: `/posts/${image.name}`,
         category: req.body.category,
         address: req.body.address,
         price: req.body.price,
